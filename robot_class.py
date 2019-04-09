@@ -2,20 +2,6 @@ from math import *
 import random
 
 
-### ------------------------------------- ###
-# Below, is the robot class
-#
-# This robot lives in 2D, x-y space, and its motion is
-# pointed in a random direction, initially.
-# It moves in a straight line until it comes close to a wall 
-# at which point it stops.
-#
-# For measurements, it  senses the x- and y-distance
-# to landmarks. This is different from range and bearing as
-# commonly studied in the literature, but this makes it much
-# easier to implement the essentials of SLAM without
-# cluttered math.
-#
 class robot:
     
     # --------
