@@ -96,7 +96,7 @@ class robot:
             ##    then we cannot record them; if they do fall in the range, then add them to the measurements list
             ##    as list.append([index, dx, dy]), this format is important for data creation done later
             if abs(dx) > self.measurement_range or abs(dy) > self.measurement_range:
-                print('Measurement out of range')
+                print('Measurement out of range...', end='\r')
             else:
                 records = [landmark_idx, dx, dy]
                 measurements.append(records)
