@@ -6,10 +6,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-# --------
-# this helper function displays the world that a robot is in
-# it assumes the world is a square grid of some given size
-# and that landmarks is a list of landmark positions(an optional argument)
 def display_world(world_size, position, landmarks=None):
     
     # using seaborn, set background grid to gray
