@@ -52,11 +52,11 @@ def make_data(N, num_landmarks, world_size, measurement_range, motion_noise,
               measurement_noise, distance):
 
     # check that data has been made
-    try:
-        check_for_data(num_landmarks, world_size, measurement_range, motion_noise, measurement_noise)
-    except ValueError:
-        print('Error: You must implement the sense function in robot_class.py.')
-        return []
+    #try:
+        #check_for_data(num_landmarks, world_size, measurement_range, motion_noise, measurement_noise)
+    #except ValueError:
+        #print('Error: You must implement the sense function in robot_class.py.')
+        #return []
     
     complete = False
     
@@ -104,13 +104,13 @@ def make_data(N, num_landmarks, world_size, measurement_range, motion_noise,
     return data
 
 
-def check_for_data(num_landmarks, world_size, measurement_range, motion_noise, measurement_noise):
+#def check_for_data(num_landmarks, world_size, measurement_range, motion_noise, measurement_noise):
     # make robot and landmarks
-    r = robot(world_size, measurement_range, motion_noise, measurement_noise)
-    r.make_landmarks(num_landmarks)
+    #r = robot(world_size, measurement_range, motion_noise, measurement_noise)
+    #r.make_landmarks(num_landmarks)
     
     
     # check that sense has been implemented/data has been made
-    test_Z = r.sense()
-    if(test_Z is None):
-        raise ValueError
+    #test_Z = r.sense()
+    #if(test_Z is None):
+        #raise ValueError
