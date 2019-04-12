@@ -2,20 +2,6 @@ from math import *
 import random
 
 
-### ------------------------------------- ###
-# Below, is the robot class
-#
-# This robot lives in 2D, x-y space, and its motion is
-# pointed in a random direction, initially.
-# It moves in a straight line until it comes close to a wall 
-# at which point it stops.
-#
-# For measurements, it  senses the x- and y-distance
-# to landmarks. This is different from range and bearing as
-# commonly studied in the literature, but this makes it much
-# easier to implement the essentials of SLAM without
-# cluttered math.
-#
 class robot:
     
     # --------
@@ -34,6 +20,20 @@ class robot:
         self.measurement_noise = measurement_noise
         self.landmarks = []
         self.num_landmarks = 0
+    
+    
+    
+    # --------
+    # make_landmarks:
+    # make random landmarks located in the area
+    #
+    def make_landmarks(self, num_landmarks):
+        self.landmarks = []
+        for i in range(num_landmarks):
+            self.landmarks.append([round(random.random() * self.world_size),
+                                   round(random.random() * self.world_size)])
+        self.num_landmarks = num_landmarks
+        
     
     
     # returns a positive, random float
@@ -56,7 +56,7 @@ class robot:
             self.x = x
             self.y = y
             return True
-
+    
 
     # --------
     # sense: returns x- and y- distances to landmarks within visibility range
@@ -65,8 +65,7 @@ class robot:
     #        landmarks to be visible at all times
     #
     
-    ## TODO: paste your complete the sense function, here
-    ## make sure the indentation of the code is correct
+
     def sense(self):
         ''' This function does not take in any parameters, instead it references internal variables
             (such as self.landamrks) to measure the distance between the robot and any landmarks
@@ -79,12 +78,11 @@ class robot:
            
         measurements = []
         
-        ## TODO: iterate through all of the landmarks in a world
         dx, dy = 0, 0
         
         for landmark_idx in range(self.num_landmarks):
         
-            ## 1. compute dx and dy, the distances between the robot and the landmark
+            ## compute dx and dy, the distances between the robot and the landmark
             dx = self.landmarks[landmark_idx][0] - self.x
             dy = self.landmarks[landmark_idx][1] - self.y
             
@@ -102,26 +100,12 @@ class robot:
                 measurements.append(records)
             
         
-        ## TODO: return the final, complete list of measurements
         return measurements
-
-
-    # --------
-    # make_landmarks:
-    # make random landmarks located in the world
-    #
-    def make_landmarks(self, num_landmarks):
-        self.landmarks = []
-        for i in range(num_landmarks):
-            self.landmarks.append([round(random.random() * self.world_size),
-                                   round(random.random() * self.world_size)])
-        self.num_landmarks = num_landmarks
-
-
+    
+    
+    
     # called when print(robot) is called; prints the robot's location
     def __repr__(self):
         return 'Robot: [x=%.5f y=%.5f]'  % (self.x, self.y)
-
-
 
 ####### END robot class #######

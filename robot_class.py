@@ -22,6 +22,20 @@ class robot:
         self.num_landmarks = 0
     
     
+    
+    # --------
+    # make_landmarks:
+    # make random landmarks located in the area
+    #
+    def make_landmarks(self, num_landmarks):
+        self.landmarks = []
+        for i in range(num_landmarks):
+            self.landmarks.append([round(random.random() * self.world_size),
+                                   round(random.random() * self.world_size)])
+        self.num_landmarks = num_landmarks
+        
+    
+    
     # returns a positive, random float
     def rand(self):
         return random.random() * 2.0 - 1.0
@@ -42,7 +56,7 @@ class robot:
             self.x = x
             self.y = y
             return True
-
+    
 
     # --------
     # sense: returns x- and y- distances to landmarks within visibility range
@@ -87,24 +101,11 @@ class robot:
             
         
         return measurements
-
-
-    # --------
-    # make_landmarks:
-    # make random landmarks located in the world
-    #
-    def make_landmarks(self, num_landmarks):
-        self.landmarks = []
-        for i in range(num_landmarks):
-            self.landmarks.append([round(random.random() * self.world_size),
-                                   round(random.random() * self.world_size)])
-        self.num_landmarks = num_landmarks
-
-
+    
+    
+    
     # called when print(robot) is called; prints the robot's location
     def __repr__(self):
         return 'Robot: [x=%.5f y=%.5f]'  % (self.x, self.y)
-
-
 
 ####### END robot class #######

@@ -66,7 +66,8 @@ def make_data(N, num_landmarks, world_size, measurement_range, motion_noise,
     while not complete:
 
         data = []
-
+        
+        #[False, False, False, ...]
         seen = [False for row in range(num_landmarks)]
     
         # guess an initial motion
@@ -77,6 +78,7 @@ def make_data(N, num_landmarks, world_size, measurement_range, motion_noise,
         for k in range(N-1):
     
             # collect sensor measurements in a list, Z
+            # [landmark_index, distance_x_between_robot-Landmark, distance_y_between_robot-Landmark]
             Z = r.sense()
 
             # check off all landmarks that were observed 
