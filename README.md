@@ -4,7 +4,7 @@ Here I combine robot sensor measurements and motions to create a map of an envir
 SLAM gives a way to track the location of a robot in the world in real-time and identify the locations of landmarks such as buildings, trees, rocks, and other world features.
 
 ## File description
-- slam.ipynb: Notebook with the slam algorithm for 2D World
+- Notebook_PDF/slam.pdf: PDF Version of a @Notebook with the slam algorithm for 2D World
 - helper.py: helper functions
 - robot_class.py: Some functions about the robot like move or sense
 
